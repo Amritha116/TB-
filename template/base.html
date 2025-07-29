@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>EMPOWERING TUBERCULOSIS DIAGNOSIS THROUGH CHEST X-RAY IMAGING AND ADVANCED AI TECHNIQUES</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/parking.css' %}"/>
+</head>
+<body >
+	<style>
+		section{
+			height: 300px;
+		}
+	</style>
+<div id="wrapper" class="wrapper" style="margin-top:20px;">
+	<div id="header">
+		<div id="logo">
+			<h3><font size="4" color="white">EMPOWERING TUBERCULOSIS DIAGNOSIS THROUGH CHEST X-RAY IMAGING AND ADVANCED AI TECHNIQUES</font></h3>
+		</div>
+		<div id="slogan">
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			{% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                    <li><a href="dtc">Decission Tree</a></li>
+                    <li><a href="rfc">Random Forest</a></li>
+                    <li><a href="cnn">CNN</a></li>
+                    <li><a href="logout">Logout</a></li>
+                    {% else %}
+					<li><a href="/">Home</a></li>
+                    <li><a href="prediction">prediction</a></li>
+                    <li><a href="logout">Logout</a></li>
+                    {% endif %}
+                {% else %}
+				<li><a href="/">Home</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+                {% endif %}		
+		</ul>
+		<br class="clearfix"/>
+	</div>
+	<br/>
+	<section>
+		{% block main %}{% endblock %}
+	</section>
+</body>
+</html>
+
